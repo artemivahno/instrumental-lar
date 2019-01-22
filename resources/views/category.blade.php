@@ -15,7 +15,7 @@
                     <ul>
                         @foreach($brands as $brand)
                             {{--<li><a class="nav-link" href="{{ route('category', $category['cat_id']) }}">{{ $category['name']}}</a></li>--}}
-                            <li><a class="nav-link" href="            {{ $brand /*['name']*/ }}</a></li><br/>
+                            <li><a class="nav-link" href="            ">{{ $brand /*['name']*/ }}</a></li><br/>
                         @endforeach
                     </ul>
                 </div>
