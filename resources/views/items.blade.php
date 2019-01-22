@@ -11,11 +11,10 @@
             </div>
         </div>
         <div class="row justify-content-center">
-                   <div class="col-md-8">
-                       <div class="col-xs-6">
-                           <a class="nav-link" href="{{ route('item') }}"> Item</a>
-                       </div>
-                   </div>
-               </div>
+            <div class="col-md-8">
+                <div class="col-xs-6">
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

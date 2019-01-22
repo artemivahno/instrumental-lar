@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
  /*При клике на производителя вывод товаров этой фирмы*/
 class brandController extends Controller
 {
-    public function index($cat_id, $brand_id){
+    public function index($category_id, $brand_id){
 
 	    /*$brands = [];
 

@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 class itemController extends Controller {
 
 	public function index() {
-
 		return view('items');
 	}
 
