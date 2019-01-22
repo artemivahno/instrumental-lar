@@ -9,14 +9,17 @@ use App\Models\Brand;
 
 class categoryController extends Controller {
 
+
 	public function categories() {
 
 
+/*обрабатывает главную страницу со всеми категориями*/
 		return view('index', [
 			'categories' => Category::all(),
 		]);
 	}
 
+/*отображает страницу с брендами в выбранной категории*/
 	public function category($id) {
 
 		$brands = [];
