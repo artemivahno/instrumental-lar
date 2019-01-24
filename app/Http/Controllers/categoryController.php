@@ -28,8 +28,6 @@ class categoryController extends Controller {
 			$test = Brand::where('id', $brandID)->get()->toArray();
 			array_push($brands, $test[0]);
 		}
-
-
 		return view('category', [
 			'brands' => $brands,
             'categoryId' => $categoryId,

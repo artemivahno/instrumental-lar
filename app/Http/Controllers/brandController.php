@@ -7,17 +7,19 @@ use Illuminate\Http\Request;
  /*При клике на производителя вывод товаров этой фирмы*/
 class brandController extends Controller
 {
-    public function index($category_id, $brand_id){
+    public function index($categoryId, $brand_id){
 
-	    /*$brands = [];
+	    $brands = [];
 
-	    $items = Item::where('category_id', $cat_id)->get();
+	    $items = Item::where('category_id', $categoryId)->get();
 	    		$brandIDs = array_pluck($items, 'brand_id');
 	    		foreach($brandIDs as $brandID) {
 	    			$test = Brand::where('id', $brandID)->get();
 	    			array_push($brands, $test[0]['name']);
-	    		}*/
-
-    	return view('brands');
+	    		}
+    	return view('brands', [
+    				'brands' => $brands,
+    	            'categoryId' => $categoryId,
+    			]);
     }
 }
