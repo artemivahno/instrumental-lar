@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Item;
+use App\Models\Category;
+use App\Models\Brand;
 
 class itemController extends Controller {
 
@@ -11,21 +14,23 @@ class itemController extends Controller {
 
         $brands = [];
 
-        $items = Item::where('category_id', $categoryId)->get();
+        $items = Item::where('category_id', $categoryId, 'brandId', $brand_id)->get();
+		dd($items);
 
-        $brandIDs = array_pluck($items, 'brand_id');
-        foreach($brandIDs as $brandID) {
-            $test = Brand::where('id', $brandID)->get();
-            array_push($brands, $test[0]['name']);
+        $itemIDs = array_pluck($items, 'item_id');
+        foreach($itemIDs as $itemID) {
+            $test = Item::where('id', $itemID)->get();
+            array_push($items, $test[0]['name']);
         }
         return view('brands', [
-            'brands' => $brands,
+            'items' => $items,
+        	'brands' => $brands,
             'categoryId' => $categoryId,
         ]);
     }
 
-	public function item() {
+	/*public function item() {
 
-			return view('item');
-		}
+			return view('brands');
+		}*/
 }

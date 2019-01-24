@@ -10,5 +10,17 @@
                 </div>
             </div>
         </div>
+        <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="col-xs-6">
+                            <ul>
+                                @foreach($items as $item)
+                                        <a class="nav-link" href="{{ url('/category/'.$categoryId.'/brand/'.$brand['id'].'/items'.$item['id']) }}">{{ $item['name']}}</a>
+                                    </li><br />
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
     </div>
 @endsection

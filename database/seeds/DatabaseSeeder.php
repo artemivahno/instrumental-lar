@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
 
 class PostsSeeder extends Seeder {
 
-    public function run()
+   /* public function run()
     {
         DB::table('Posts')->delete();
         Post::create([
@@ -49,5 +49,5 @@ class PostsSeeder extends Seeder {
             'published' => false,
             'published_at' => DB::raw('CURRENT_TIMESTAMP'),
         ]);
-    }
+    }*/
 }
