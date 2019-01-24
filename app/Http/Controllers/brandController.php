@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
  /*При клике на производителя вывод товаров этой фирмы*/
+/*отображает страницу с брендами в выбранной категории   view - category/cat_id/brand/bramd_id */
 class brandController extends Controller
 {
     public function index($categoryId, $brand_id){
