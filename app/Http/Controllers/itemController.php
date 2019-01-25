@@ -11,20 +11,17 @@ class itemController {
 
 	public function index($categoryId, $brandId) {
 
-		//$brands = [];
+		$brands = [];
 				$items = Item::where('category_id', $categoryId)-> where('brand_id', $brandId)->get();
-		/*//dd($items);
+
 				$brandIDs = array_pluck($items, 'brand_id');
-				/*dd($brandIDs);
-				array:2 [▼
-				  0 => 1
-				  1 => 3
-				]*/
-				/*foreach($brandIDs as $brandID) {
+				foreach($brandIDs as $brandID) {
 					$test = Brand::where('id', $brandID)->get()->toArray();
 					array_push($brands, $test[0]);
 				}
-		dd($brands);*/
+
+
+		//dd($brandId);
 
 /*		//		$itemsInCategory = ['item' => Item::all(),];
 		//$items = Item::where('category_id', $categoryId, 'brand_id', $brandId)->get();
@@ -46,6 +43,9 @@ class itemController {
 		*/
 		return view('items', [
 			'items' => $items,
+            'brands' => $brands,
+            'categoryId' => $categoryId,
+
 		]);
 	}
 
