@@ -19,17 +19,24 @@ class itemController {
 					$test = Brand::where('id', $brandID)->get()->toArray();
 					array_push($brands, $test[0]);
 				}
+				$itemsId = $items;
 
 		return view('items', [
 			'items' => $items,
+			'itemsId' => $itemsId,
             'brandsId' => $brandId,
             'categoryId' => $categoryId,
 
 		]);
 	}
 
-	public function item() {
+	public function item($itemsId) {
+		dd($itemsId);
+		$items = Item::where('itemId',$itemsId)->first();
+		//dd($items);
 
-		return view('item');
+		return view('item', [
+			'item'=>$items,
+		]);
 	}
 }

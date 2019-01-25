@@ -7,6 +7,8 @@
                 <div class="card">
                     <div class="card-header">Item</div>
 
+                    {{ $item['name']}}
+
                 </div>
             </div>
         </div>
