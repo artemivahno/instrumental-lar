@@ -20,30 +20,9 @@ class itemController {
 					array_push($brands, $test[0]);
 				}
 
-
-		//dd($brandId);
-
-/*		//		$itemsInCategory = ['item' => Item::all(),];
-		//$items = Item::where('category_id', $categoryId, 'brand_id', $brandId)->get();
-		//dd($items);
-		$itemsInCategory = Item::where('category_id', $categoryId)->get();
-		//$items = Item::where('brand_id', $brandId)->get();
-		$itemsBrand = array_pluck($itemsInCategory, 'brand_id');
-		foreach($itemsBrand as $brandID) {
-					$test = Brand::where('id', $brandID)->get()->toArray();
-					array_push($brands, $test[0]);
-				}
-				dd($brands);
-		/*$item = [];
-		if($itemsBrand === $brandId) {
-			$test = Brand::where('id', $brandId)->get()->toArray();
-			array_push($item, $test[0]);
-		}
-
-		*/
 		return view('items', [
 			'items' => $items,
-            'brands' => $brands,
+            'brandsId' => $brandId,
             'categoryId' => $categoryId,
 
 		]);
