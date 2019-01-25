@@ -24,6 +24,11 @@ class categoryController extends Controller {
 		$brands = [];
 		$items = Item::where('category_id', $categoryId)->get();
 		$brandIDs = array_pluck($items, 'brand_id');
+		/*dd($brandIDs);
+		array:2 [▼
+		  0 => 1
+		  1 => 3
+		]*/
 		foreach($brandIDs as $brandID) {
 			$test = Brand::where('id', $brandID)->get()->toArray();
 			array_push($brands, $test[0]);
