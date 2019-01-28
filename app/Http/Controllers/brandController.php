@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 /*отображает страницу с брендами в выбранной категории   view - category/cat_id/brand/bramd_id */
 class brandController extends Controller
 {
-    public function index($categoryId, $brand_id){
+    /*public function index($categoryId, $brand_id){
 
 	    $brands = [];
 
@@ -22,5 +22,5 @@ class brandController extends Controller
     				'brands' => $brands,
     	            'categoryId' => $categoryId,
     			]);
-    }
+    }*/
 }
