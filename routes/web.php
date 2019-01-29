@@ -11,8 +11,10 @@
 |
 */
 
-Route::get('/', 'categoryController@categories')->name('index');
-Route::get('/category/{categoryId}', 'categoryController@category')->name('category');
-Route::get('/category/{category_id}/brand/{brand_id}', 'brandController@index')->name('brand');
-Route::get('/category/{category_id}/brand/{brand_id}/items', 'itemController@index')->name('items');
-Route::get('/category/{category_id}/brand/{brand_id}/item/{item_id}', 'itemController@item')->name('item');
+Route::get('/', ['as' => 'home', 'uses' => 'categoryController@categories'])->name('index');
+Route::get('/category/{categoryId}', ['as' => 'category', 'uses' => 'categoryController@category'])->name('category');
+//not use yet
+Route::get('/category/{category_id}/brand/{brand_id}', ['as' => 'brand', 'uses' => 'brandController@index'])->name('brand');
+
+Route::get('/category/{category_id}/brand/{brand_id}/items', ['as' => 'brand_in_category', 'uses' =>'itemController@index'])->name('items');
+Route::get('/category/{category_id}/brand/{brand_id}/item/{item_id}', ['as' => 'item', 'uses' => 'itemController@item'])->name('item');

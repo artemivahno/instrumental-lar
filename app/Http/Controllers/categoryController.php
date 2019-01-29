@@ -16,7 +16,7 @@ class categoryController extends Controller {
 			'categories' => Category::all(),
 		]);
 	}
-
+//https://dev.to/jordanirabor/building-dynamic-breadcrumbs-in-laravel-926
 	/*отображает страницу с брендами в выбранной категории   view - category/cat_id */
 	public function category($categoryId) {
 
