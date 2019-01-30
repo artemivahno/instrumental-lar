@@ -5,16 +5,18 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">All Brands of select Category</div>
+                    <div class="card-header">All Brands in selected Category: !!"-
+                        {{ $categoryName['name']}}-"!!</div>
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center">
-                    <div class="col-md-8">
-                        <div class="breadcrumbs">
-                            {{ Breadcrumbs::render('home', $continent) }}
-                        </div>
-                    </div>
+        {{--<div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="breadcrumbs">
+                    {{ Breadcrumbs::render('home', $category_bread) }}
+                </div>
+            </div>
+        </div>--}}
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="col-xs-6">

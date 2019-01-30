@@ -7,7 +7,7 @@ use App\Models\Category;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 
-class itemController {
+class itemController /*extends Controller*/{
 
 	public function index($categoryId, $brandId) {
 
@@ -19,9 +19,11 @@ class itemController {
 			$test = Brand::where('id', $brandID)->get()->toArray();
 			array_push($brands, $test[0]);
 		}
+		$itemsId = $items;
 
 		return view('items', [
 			'items' => $items,
+			'itemsId' => $itemsId,
 			'brandsId' => $brandId,
 			'categoryId' => $categoryId,
 
@@ -30,11 +32,10 @@ class itemController {
 
 	public function item($categoryId, $brandId, $itemId) {
 
-		$item = Item::where('id', $itemId)->get();
-		dd($item);
+		$item = Item::where('Id', $itemId)->get();
+		//dd($item);
 		return view('item', [
 			'item' => $item,
-			//'itemId' => $itemId,
 			'brandsId' => $brandId,
 			'categoryId' => $categoryId,
 		]);

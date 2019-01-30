@@ -16,21 +16,24 @@ class categoryController extends Controller {
 			'categories' => Category::all(),
 		]);
 	}
-//https://dev.to/jordanirabor/building-dynamic-breadcrumbs-in-laravel-926
+	//https://dev.to/jordanirabor/building-dynamic-breadcrumbs-in-laravel-926
 	/*отображает страницу с брендами в выбранной категории   view - category/cat_id */
 	public function category($categoryId) {
 
 		$brands = [];
-		$items = Item::where('category_id', $categoryId)->get();
-		$brandIDs = array_pluck($items, 'brand_id');
-		//dd($brandIDs);
+		$items = Item::where('category_id', $categoryId)->get(); //забрали items по id категории
+
+		$catNsme = Category::where('cat_id', $categoryId)->first(); //для вывода имени категории в загаловке
+
+		$brandIDs = array_pluck($items, 'brand_id'); //выдернули из items id брэндов
 		foreach($brandIDs as $brandID) {
 			$test = Brand::where('id', $brandID)->get()->toArray();
 			array_push($brands, $test[0]);
-		}
-		$brands = array_map("unserialize", array_unique(array_map("serialize", $brands)));
+		} //из БД забрали бренды по id и положили их в массив
+		$brands = array_map("unserialize", array_unique(array_map("serialize", $brands))); //убрали дубли
 
 		return view('category', [
+			'categoryName' => $catNsme,
 			'brands' => $brands,
 			'categoryId' => $categoryId,
 		]);

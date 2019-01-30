@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">All Items in selectec Brand in Category (items.blade // itemController)</div>
+                    <div class="card-header">All Items in selectec Brand in Category (items.blade // itemController) </div>
 
                 </div>
             </div>
