@@ -32,7 +32,7 @@ class itemController /*extends Controller*/{
 
 	public function item($categoryId, $brandId, $itemId) {
 
-		$item = Item::where('Id', $itemId)->get();
+		$item = Item::where('id', $itemId)->first();
 		//dd($item);
 		return view('item', [
 			'item' => $item,
