@@ -13,7 +13,9 @@
 
 Route::get('/', 'categoryController@categories')->name('index');
 /*Route::get('/', ['as' => 'home', 'uses' => 'categoryController@categories'])->name('index');*/
-Route::get('/category/{categoryId}', /*['as' => 'category', 'uses' =>*/ 'categoryController@category')->name('category');
+//Route::get('/category/{categoryId}', /*['as' => 'category', 'uses' =>*/ 'categoryController@category')->name('category');
+Route::get('/category/{slug}', /*['as' => 'category', 'uses' =>*/ 'categoryController@show')->name('category');
+
 //not use yet
 Route::get('/category/{category_id}/brand/{brand_id}', ['as' => 'brand', 'uses' => 'brandController@index'])->name('brand');
 

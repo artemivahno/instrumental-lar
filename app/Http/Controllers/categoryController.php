@@ -38,4 +38,29 @@ class categoryController extends Controller {
 			'categoryId' => $categoryId,
 		]);
 	}
+
+	public function show($slug) {
+		// If user come from ols link where was id then make 301 redirect.
+		if(is_numeric($slug)) {
+			// Get category for slug.
+			$categorySlug = Category::findOrFail($slug);
+			return Redirect::to(route('category', $categorySlug->slug), 301);
+		}
+		$categorySlug = Category::whereSlug($slug)->firstOrFail();
+		$categoryId = array_search(cat_id,$categorySlug);
+		dd($categoryId);
+
+
+		$brands = [];
+				$items = Item::where('category_id', $slug)->get(); //забрали items по id категории
+		//dd($items);
+		/*$categoriesAll = Category::all();
+		dd($categoriesAll);*/
+		/*$catNsme = Category::where('cat_id', $categoryId)->first(); //для вывода имени категории в загаловке*/
+
+		// Get category for slug.
+		return view('category', [
+			'category' => $categorySlug
+		]);
+	}
 }
