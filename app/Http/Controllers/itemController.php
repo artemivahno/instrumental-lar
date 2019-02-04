@@ -9,35 +9,38 @@ use Illuminate\Http\Request;
 
 class itemController /*extends Controller*/{
 
-	public function index($categoryId, $brandId) {
+	public function index($slug, $brandSlug) {
+
+		$categorySlug = Category::whereSlug($slug)->firstOrFail();
+		$categoryId = $categorySlug ['cat_id'];
+
+		$brandSlug = Brand::whereSlug($brandSlug)->firstOrFail();
+		$brandId = $brandSlug ['id'];
 
 		$brands = [];
 		$items = Item::where('category_id', $categoryId)->where('brand_id', $brandId)->get();
 
-		$brandIDs = array_pluck($items, 'brand_id');
+		/*$brandIDs = array_pluck($items, 'brand_id');
 		foreach($brandIDs as $brandID) {
 			$test = Brand::where('id', $brandID)->get()->toArray();
 			array_push($brands, $test[0]);
-		}
-		$itemsId = $items;
+		}*/
+		$catNsme = $categorySlug ['name']; //для вывода имени категории в загаловке
+		$brandName = $brandSlug ['name'];
 
 		return view('items', [
 			'items' => $items,
-			'itemsId' => $itemsId,
-			'brandsId' => $brandId,
-			'categoryId' => $categoryId,
-
+			'categoryName' => $catNsme,
+			'brandName' => $brandName,
 		]);
 	}
 
-	public function item($categoryId, $brandId, $itemId) {
+	public function item($itemSlug) {
 
-		$item = Item::where('id', $itemId)->first();
+		$item = Item::where('slug', $itemSlug)->first();
 		//dd($item);
 		return view('item', [
 			'item' => $item,
-			'brandsId' => $brandId,
-			'categoryId' => $categoryId,
 		]);
 	}
 }

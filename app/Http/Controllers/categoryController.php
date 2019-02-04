@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
-use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Brand;
 
@@ -23,7 +22,7 @@ class categoryController extends Controller {
 		$categorySlug = Category::whereSlug($slug)->firstOrFail();
 		$categoryId = $categorySlug ['cat_id'];
         $brands = [];
-        $items = Item::where('category_id', $categoryId)->get();
+        $items = Item::where('category_id', $categoryId)->get();//забрали items по id категории
         $brandIDs = array_pluck($items, 'brand_id'); //выдернули из items id брэндов
         foreach($brandIDs as $brandID) {
             $test = Brand::where('id', $brandID)->get()->toArray();
@@ -31,39 +30,13 @@ class categoryController extends Controller {
         } //из БД забрали бренды по id и положили их в массив
         $brands = array_map("unserialize", array_unique(array_map("serialize", $brands))); //убрали дубли
 
-        $catNsme = Category::where('cat_id', $categoryId)->first(); //для вывода имени категории в загаловке
+        $catNsme = $categorySlug ['name'];; //для вывода имени категории в загаловке
+	    //dd($catNsme );
 
-        //	$items = Item::where('category_id', $slug)->get(); //забрали items по id категории
-        //dd($items);
-        /*$categoriesAll = Category::all();
-        dd($categoriesAll);*/
-
-		// Get category for slug.
 		return view('category', [
-			'category' => $categorySlug,
+			'category' => $slug,
             'categoryName' => $catNsme,
 			'brands' => $brands,
 		]);
 	}
-
-    /*  ---  НЕ ИСПОЛЬЗУЕТСЯ    public function category($categoryId) {
-
-        $brands = [];
-        $items = Item::where('category_id', $categoryId)->get(); //забрали items по id категории
-
-        $catNsme = Category::where('cat_id', $categoryId)->first(); //для вывода имени категории в загаловке
-
-        $brandIDs = array_pluck($items, 'brand_id'); //выдернули из items id брэндов
-        foreach($brandIDs as $brandID) {
-            $test = Brand::where('id', $brandID)->get()->toArray();
-            array_push($brands, $test[0]);
-        } //из БД забрали бренды по id и положили их в массив
-        $brands = array_map("unserialize", array_unique(array_map("serialize", $brands))); //убрали дубли
-
-        return view('category', [
-            'categoryName' => $catNsme,
-            'brands' => $brands,
-            'categoryId' => $categoryId,
-        ]);
-    } ---  НЕ ИСПОЛЬЗУЕТСЯ*/
 }

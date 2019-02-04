@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">All Brands in selected Category: !!"-
-                        <strong>{{ $categoryName['name']}}-"!!</strong>
+                        <strong>{{ $categoryName}}-"!!</strong>
                     </div>
                 </div>
             </div>
@@ -23,7 +23,7 @@
                 <div class="col-xs-6">
                     <ul>
                         @foreach($brands as $brand)
-                            <li><a class="nav-link" href="{{ url('/category/'.$category.'/brand/'.$brand['id'].'/items') }}">{{ $brand['name']}}</a>
+                            <li><a class="nav-link" href="{{ url('/category/'.$category.'/brand/'.$brand['slug']) }}">{{ $brand['name']}}</a>
                             </li>
                         @endforeach
                     </ul>

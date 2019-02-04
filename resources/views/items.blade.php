@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">All Items in selectec Brand in Category (items.blade // itemController)
+                    <div class="card-header">All Items in selectec Brand <strong>-{{ $brandName}}-</strong> in Category <strong>-{{ $categoryName}}-</strong> (items.blade // itemController)
                     </div>
 
                 </div>
@@ -16,8 +16,10 @@
                 <div class="col-xs-6">
                     <ul>
                         @foreach($items as $item)
+                            {{--<li><a class="nav-link" href=
+                                "{{ url('/category/'.$categoryId.'/brand/'.$brandsId.'/item/'.$item['id']) }}">--}}
                             <li><a class="nav-link" href=
-                                "{{ url('/category/'.$categoryId.'/brand/'.$brandsId.'/item/'.$item['id']) }}">
+                                "{{ url('/product/'. $item->slug) }}">
                                     {{ $item['name']}}</a>
                             </li>
                         @endforeach
