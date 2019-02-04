@@ -13,6 +13,9 @@ class DatabaseSeeder extends Seeder
      *
      * https://cleverman.org/post/laravel-5-5-i-slug-chto-takoe-slagi-i-zachem-oni-nuzhny
      *      slugs
+     *
+     * http://cccp-blog.com/laravel/laravel-middleware
+     * breadcrumbs
 
      * Seed the application's database.
      *
