@@ -12,7 +12,6 @@
 */
 
 Route::get('/', 'categoryController@categories')->name('index');
-//Route::get('/category/{categoryId}', /*['as' => 'category', 'uses' =>*/ 'categoryController@category')->name('category');
 Route::get('/category/{slug}', /*['as' => 'category', 'uses' =>*/ 'categoryController@show')->name('category');
 
 Route::get('/category/{slug}/brand/{brandsSlug}', /*['as' => 'brand_in_category', 'uses' =>*/'itemController@index')->name('items');
