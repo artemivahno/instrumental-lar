@@ -11,10 +11,12 @@
                 </div>
             </div>
         </div>
-        <ol class="breadcrumb">
-            <li><a href="{{route('index')}}">Home</a></li>
-            <li class="active"><b>{{$categoryName}} </b></li>
-        </ol>
+        <div>
+            <ul class="breadcrumb">
+                <li><a href="{{route('index')}}">Home</a></li>
+                <li class="active"><b>{{$categoryName}} </b></li>
+            </ul>
+        </div>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="col-xs-6">

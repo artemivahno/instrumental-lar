@@ -12,19 +12,17 @@
             </div>
         </div>
         <div>
-            <ol class="breadcrumb">
+            <ul class="breadcrumb">
                 <li><a href="{{route('index')}}">Home</a></li>
                 <li><a href="{{route('category',$category->slug )}}">{{$categoryName}}</a></li>
                 <li class="active"><b>{{$brandName}} </b></li>
-            </ol>
+            </ul>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="col-xs-6">
                     <ul>
                         @foreach($items as $item)
-                            {{--<li><a class="nav-link" href=
-                                "{{ url('/category/'.$categoryId.'/brand/'.$brandsId.'/item/'.$item['id']) }}">--}}
                             <li><a class="nav-link" href=
                                 "{{ url('/product/'. $item->slug) }}">
                                     {{ $item['name']}}</a>
