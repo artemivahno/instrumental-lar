@@ -34,6 +34,7 @@ class categoryController extends Controller {
 	    //dd($catNsme );
 
 		return view('category', [
+			'categories' => Category::all(),
 			'category' => $slug,
             'categoryName' => $catNsme,
 			'brands' => $brands,

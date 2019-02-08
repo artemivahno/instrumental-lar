@@ -9,7 +9,7 @@
 					<div class="footer">
 						<!-- footer logo -->
 						<div class="footer-logo">
-							<a class="logo" href="#">
+                            <a class="logo" href="/">
 		            <img src="{{ asset('./img/logo.png') }}" alt="">
 		          </a>
 						</div>

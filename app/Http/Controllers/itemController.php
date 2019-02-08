@@ -25,6 +25,7 @@ class itemController /*extends Controller*/
 		$brandName = $brandSlug ['name'];
 
 		return view('items', [
+			'categories' => Category::all(),
 			'category' => $categorySlug,
 			'items' => $items,
 			'categoryName' => $catNsme,
@@ -49,6 +50,7 @@ class itemController /*extends Controller*/
 		$brandSlug = $brand ['slug'];
 
 		return view('item', [
+			'categories' => Category::all(),
 			'item' => $item,
 			'slug' => $categorySlug,
 			'brandsSlug' => $brandSlug,
