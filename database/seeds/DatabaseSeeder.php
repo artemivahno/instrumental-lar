@@ -16,11 +16,6 @@ class DatabaseSeeder extends Seeder
      *
      * http://cccp-blog.com/laravel/laravel-middleware
      * breadcrumbs
-     *
-     * Laravel Admin
-     * https://github.com/z-song/laravel-admin
-     * docs
-     * https://laravel-admin.org/docs/#/
 
      * Seed the application's database.
      *
