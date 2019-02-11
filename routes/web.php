@@ -21,3 +21,7 @@ Route::get('/product/{itemSlug}', /*['as' => 'item', 'uses' => */'itemController
 //not use yet
 Route::get('/brand/{brand_slug}', ['as' => 'brand', 'uses' => 'brandController@index'])->name('brand');
 
+
+Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');
