@@ -40,4 +40,9 @@ class categoryController extends Controller {
 			'brands' => $brands,
 		]);
 	}
+
+	public function create() {
+
+    	return view('create');
+	}
 }

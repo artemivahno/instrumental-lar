@@ -58,4 +58,9 @@ class itemController /*extends Controller*/
 			'brandName' => $brandName,
 		]);
 	}
+
+	public function products (){
+
+		return view('products');
+	}
 }

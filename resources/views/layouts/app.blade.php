@@ -1,4 +1,5 @@
-@include('layouts.header')
+@include('layouts.head')
+
 
 {{--<body>--}}
 
@@ -56,11 +57,9 @@
             </div>
         </div>
     </nav>--}}
-   {{-- @section('content')--}}
     <main class="py-4">
         @yield('content')
     </main>
-    {{--@endsection--}}
 </div>
 @include('layouts.footer')
 </body>

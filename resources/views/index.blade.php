@@ -1,4 +1,10 @@
 @extends('layouts.app')
+@include('layouts.header')
+@include('layouts.menu')
+
+{{--<div id="menu">--}}
+
+{{--</div>--}}
 
 @section('content')
 <!-- HOME -->
@@ -893,4 +899,4 @@
 </div>
 <!-- /section -->
 @endsection
-
+{{--@include('layouts.menu')--}}
