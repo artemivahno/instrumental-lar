@@ -1,20 +1,21 @@
-@csrf
+{{--@csrf--}}
+{{--{{csrf_token()}}--}}
 
-<form  action="{{ url('/[[route_path]]'.( isset($model) ? "/" . $model->id : "")) }}" method="POST" class="form-horizontal">
-
+<form  method="POST" action="/products">
+    {{csrf_field()}}
     <div class="form-group">
         <label for="inputName">Название</label>
-        <input class="form-control" id="inputName" placeholder="Название товара"></input>
+        <input type="text" name="name" class="form-control" id="inputName" placeholder="Название товара"></input>
     </div>
     </br>
         <div class="row">
             <div class="col">
                 <p>Выберите категорию</p>
-                <div class="form-group">
+                <div class="form-group" >
                     <select class="form-control">
                        <option selected disabled>Категория</option>
                         @foreach($categories as $category)
-                            <option value="{{$category['id']}}">{{$category['name']}}</option>
+                            <option value="{{$category['id' ]}}">{{$category['name']}}</option>
                         @endforeach
                     </select>
 

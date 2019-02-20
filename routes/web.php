@@ -14,9 +14,12 @@
 Route::get('/', 'categoryController@categories')->name('index');
 
 Route::get('/category/{slug}', /*['as' => 'category', 'uses' =>*/ 'categoryController@show')->name('category');
-Route::get('/category/create', 'categoryController@create')->name('category_create');
-Route::get('/products/', 'productController@index')->name('products');
-Route::get('/product/create', 'productController@product_create')->name('product_create');
+Route::get('/category/create', 'categoryController@category_create')->name('category_create');
+Route::post('/categories', 'categoryController@store');
+Route::get('/categories', 'categoryController@categoriesAll')->name('categories');
+Route::get('/products', 'productController@index')->name('products');
+Route::post('/products', 'productController@store');
+Route::get('/products/create', 'productController@product_create')->name('product_create');
 
 Route::get('/category/{slug}/brand/{brandsSlug}', /*['as' => 'brand_in_category', 'uses' =>*/'itemController@index')->name('items');
 

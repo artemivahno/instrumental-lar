@@ -14,13 +14,16 @@ class productController extends Controller
     }
 
     public function product_create () {
-			$allCat = Category::all();
 
 
         return view('product_create', [
-	        'categories' => $allCat,
+	        'categories' => Category::all(),
 	        'brands' => Brand::all(),
 
         ]);
+    }
+
+    public function store (){
+    	return request() ->all();
     }
 }

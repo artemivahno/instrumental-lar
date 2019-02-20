@@ -15,6 +15,18 @@ class categoryController extends Controller {
 			'categories' => Category::all(),
 		]);
 	}
+
+	public function categoriesAll() {
+
+		return view('categories', [
+			'categories' => Category::all(),
+		]);
+	}
+
+	public function store() {
+		return request()->all();
+	}
+
 	//https://dev.to/jordanirabor/building-dynamic-breadcrumbs-in-laravel-926
 	/*отображает страницу с брендами в выбранной категории   view - category/slag */
     public function show($slug) {
