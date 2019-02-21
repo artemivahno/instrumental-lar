@@ -24,7 +24,8 @@
                 <div class="col-xs-6">
                     <ul>
                         @foreach($categories as $category)
-                            <li><a class="nav-link" href="{{ url('/category/'.$category) }}">{{ $category['name']}}</a>
+                            <li><a class="nav-link"
+                                                           href="{{ route('category', $category->slug)}}">{{ $category['name']}}</a>
                             </li>
                         @endforeach
                     </ul>

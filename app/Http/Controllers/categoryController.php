@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use App\Models\Category;
 use App\Models\Brand;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class categoryController extends Controller {
 
@@ -22,9 +23,21 @@ class categoryController extends Controller {
 			'categories' => Category::all(),
 		]);
 	}
+	public function category_create() {
+
+    	return view('category_create');
+	}
 
 	public function store() {
-		return request()->all();
+
+		$category = new Category();
+
+		$category -> name = request("name");
+//		$category -> slug = request(sluggable());
+		dd($category );
+		$category ->save();
+
+		return redirect('/categories');
 	}
 
 	//https://dev.to/jordanirabor/building-dynamic-breadcrumbs-in-laravel-926
@@ -53,8 +66,4 @@ class categoryController extends Controller {
 		]);
 	}
 
-	public function create() {
-
-    	return view('create');
-	}
 }
