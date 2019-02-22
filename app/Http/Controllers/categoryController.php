@@ -30,11 +30,9 @@ class categoryController extends Controller {
 
 	public function store() {
 
-		$category = new Category();
-
-		$category -> name = request("name");
-//		$category -> slug = request(sluggable());
-		dd($category );
+		$category = new Category([
+			'name' => request("name"),
+		]);
 		$category ->save();
 
 		return redirect('/categories');

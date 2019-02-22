@@ -23,6 +23,8 @@
             <div class="col-md-8">
                 <div class="col-xs-6">
                     <ul>
+                    <li><a href="/categories/create">Создать новую категорию</a></li>
+                        </br>
                         @foreach($categories as $category)
                             <li><a class="nav-link"
                                                            href="{{ route('category', $category->slug)}}">{{ $category['name']}}</a>

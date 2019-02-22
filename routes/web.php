@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'categoryController@categories')->name('index');
+Route::get('/', '')->name('index');
 
 Route::get('/category/{slug}', /*['as' => 'category', 'uses' =>*/ 'categoryController@show')->name('category');
 Route::post('/categories', 'categoryController@store');

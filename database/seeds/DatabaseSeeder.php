@@ -10,7 +10,9 @@ class DatabaseSeeder extends Seeder
 {
     /**
      * http://simple-training.com/basics-of-laravel5/laravel5-seeds/
-     * php artisan db:seed
+     *
+     * php artisan migrate:refresh --seed
+     *
      *
      * https://cleverman.org/post/laravel-5-5-i-slug-chto-takoe-slagi-i-zachem-oni-nuzhny
      *      slugs
