@@ -17,9 +17,12 @@ class CreateProductsTable extends Migration
 	        $table->increments('id');
 	        $table->string('name');
 	        $table->string('slug')->nullable()->index()->unique();
-	        $table->integer('category_id');
-	        $table->integer('brand_id');
+	        $table->unsignedInteger('category_id');
+	        $table->unsignedInteger('brand_id');
 	        $table->timestamps();;
+
+	        $table->foreign('category_id')->references('id')->on('categories');
+	        $table->foreign('brand_id')->references('id')->on('brands');
         });
     }
 

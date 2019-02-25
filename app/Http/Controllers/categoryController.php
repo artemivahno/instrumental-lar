@@ -19,23 +19,31 @@ class categoryController extends Controller {
 
 	public function categoriesAll() {
 
-		return view('categories', [
+		return view('Admin.categories', [
 			'categories' => Category::all(),
 		]);
 	}
+
 	public function category_create() {
 
-    	return view('category_create');
+    	return view('admin.category_create');
 	}
 
-	public function store() {
+	public function store(CreateCategoryRequest $request) {
 
-		$category = new Category([
+		$category = Category::create([
+			'name' => $request->get("name"),
+		]);
+		/*$category = new Category([
 			'name' => request("name"),
 		]);
-		$category ->save();
+		$category ->save();*/
 
 		return redirect('/categories');
+	}
+
+	public function edit(){
+
 	}
 
 	//https://dev.to/jordanirabor/building-dynamic-breadcrumbs-in-laravel-926
