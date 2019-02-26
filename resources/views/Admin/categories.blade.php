@@ -23,6 +23,7 @@
             </tr>
             </thead>
             <tbody>
+
             @if(count($categories))
                 @foreach($categories as $category)
                     <tr>

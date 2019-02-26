@@ -18,7 +18,7 @@ Route::get('/categories/create', 'categoryController@category_create')->name('ca
 Route::get('/admin/categories', 'categoryController@categoriesAll')->name('categories');
 
 Route::resource('category','categoryController');
-Route::get('/category/{slug}','categoryController@show')->name('category');
+Route::get('/category/{slug}','categoryController@showSlug')->name('category.slug');
 
 
 Route::get('/products', 'productController@index')->name('products');

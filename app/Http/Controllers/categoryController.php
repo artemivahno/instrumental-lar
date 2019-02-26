@@ -69,7 +69,7 @@ class categoryController extends Controller
 	        $catNsme = $categorySlug ['name'];; //для вывода имени категории в загаловке
 		    //dd($catNsme );
 
-			return view('category', [
+			return view('category.slug', [
 				'categories' => Category::all(),
 				'category' => $slug,
 	            'categoryName' => $catNsme,
@@ -81,6 +81,7 @@ class categoryController extends Controller
 
 			return view('Admin.categories', [
 				'categories' => Category::all(),
+				dd(categories),
 			]);
 		}
 
