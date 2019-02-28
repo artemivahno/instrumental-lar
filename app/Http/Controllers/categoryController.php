@@ -16,8 +16,9 @@ class categoryController extends Controller
     public function index()
     {
 	    /*обрабатывает главную страницу со всеми категориями   view - /*/
-	    		return view('index', [
-	    			'categories' => Category::all(),
+			$categoriesAll = Category::all();
+	    return view('index', [
+	    			'categories' => $categoriesAll,
 	    		]);
     }
 
@@ -54,6 +55,7 @@ class categoryController extends Controller
     }
 
 	public function showSlug($slug) {
+		dd($slug);
 
 			$categorySlug = Category::whereSlug($slug)->firstOrFail();
 			$categoryId = $categorySlug ['id'];
@@ -81,7 +83,6 @@ class categoryController extends Controller
 
 			return view('Admin.categories', [
 				'categories' => Category::all(),
-				dd(categories),
 			]);
 		}
 
