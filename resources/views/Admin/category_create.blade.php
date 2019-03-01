@@ -1,5 +1,5 @@
 <h1>Создание категории</h1>
-<form  method="POST" action="/categories">
+<form  method="POST" action="/category">
     {{csrf_field()}}
     <div class="form-group">
         <label for="inputName">Название Категории</label>

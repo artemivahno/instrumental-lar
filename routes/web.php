@@ -18,7 +18,8 @@ Route::get('/categories/create', 'categoryController@category_create')->name('ca
 Route::get('/admin/categories', 'categoryController@categoriesAll')->name('categories');
 
 Route::resource('category','categoryController');
-Route::get('/category/{slug}','categoryController@showSlug')->name('category.slug');
+
+Route::get('/category/{slug}','categoryController@show_ыlug')->name('category.slug');
 
 
 Route::get('/products', 'productController@index')->name('products');
@@ -34,3 +35,11 @@ Route::get('/brand/{brand_slug}', ['as' => 'brand', 'uses' => 'brandController@i
 
 
 Auth::routes();
+
+Route::get('/roles', function () {
+	$user = \Illuminate\Support\Facades\Auth::user();
+
+	return response() -> json([
+		'roles'=>$user->roles
+	]);
+});

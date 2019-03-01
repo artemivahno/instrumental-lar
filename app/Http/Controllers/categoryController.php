@@ -29,7 +29,7 @@ class categoryController extends Controller
      */
     public function create()
     {
-        //
+	    return view('admin.category_create');
     }
 
     /**
@@ -54,8 +54,8 @@ class categoryController extends Controller
         //
     }
 
-	public function showSlug($slug) {
-		dd($slug);
+	public function show_ыlug($slug) {
+		//dd($slug);
 
 			$categorySlug = Category::whereSlug($slug)->firstOrFail();
 			$categoryId = $categorySlug ['id'];
