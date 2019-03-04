@@ -30,6 +30,11 @@ Route::get('/category/{slug}/brand/{brandsSlug}', /*['as' => 'brand_in_category'
 
 Route::get('/product/{itemSlug}', /*['as' => 'item', 'uses' => */'itemController@item')->name('item');
 
+Route::get('/admin', function(){
+	return view('admin');
+});
+
+
 //not use yet
 Route::get('/brand/{brand_slug}', ['as' => 'brand', 'uses' => 'brandController@index'])->name('brand');
 
