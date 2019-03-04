@@ -36,10 +36,11 @@ Route::get('/brand/{brand_slug}', ['as' => 'brand', 'uses' => 'brandController@i
 
 Auth::routes();
 
-Route::get('/roles', function () {
+//для вывода списка json по ролям
+/*Route::get('/roles', function () {
 	$user = \Illuminate\Support\Facades\Auth::user();
 
 	return response() -> json([
 		'roles'=>$user->roles
 	]);
-});
+});*/
