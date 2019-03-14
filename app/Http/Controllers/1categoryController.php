@@ -21,7 +21,7 @@ class CategoryController extends Controller {
 
 	public function categoriesAll() {
 
-		return view('Admin.categories', [
+		return view('admin.categories', [
 			'categories' => Category::all(),
 		]);
 	}

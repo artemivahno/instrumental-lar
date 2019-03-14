@@ -54,7 +54,7 @@ class categoryController extends Controller
         //
     }
 
-	public function show_ыlug($slug) {
+	public function show_slug($slug) {
 		//dd($slug);
 
 			$categorySlug = Category::whereSlug($slug)->firstOrFail();
@@ -81,7 +81,7 @@ class categoryController extends Controller
 
 	public function categoriesAll() {
 
-			return view('Admin.categories', [
+			return view('admin.categories', [
 				'categories' => Category::all(),
 			]);
 		}

@@ -19,7 +19,7 @@ Route::get('/admin/categories', 'categoryController@categoriesAll')->name('categ
 
 Route::resource('category','categoryController');
 
-Route::get('/category/{slug}','categoryController@show_ыlug')->name('category.slug');
+Route::get('/category/{slug}','categoryController@show_slug')->name('category.slug');
 
 
 Route::get('/products', 'productController@index')->name('products');
@@ -30,16 +30,22 @@ Route::get('/category/{slug}/brand/{brandsSlug}', /*['as' => 'brand_in_category'
 
 Route::get('/product/{itemSlug}', /*['as' => 'item', 'uses' => */'itemController@item')->name('item');
 
+Route::get('/admin', function(){
+	return view('admin');
+});
+
+
 //not use yet
 Route::get('/brand/{brand_slug}', ['as' => 'brand', 'uses' => 'brandController@index'])->name('brand');
 
 
 Auth::routes();
 
-Route::get('/roles', function () {
+//для вывода списка json по ролям
+/*Route::get('/roles', function () {
 	$user = \Illuminate\Support\Facades\Auth::user();
 
 	return response() -> json([
 		'roles'=>$user->roles
 	]);
-});
+});*/

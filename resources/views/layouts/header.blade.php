@@ -12,7 +12,9 @@
             </div>
             <div class="pull-right">
                 <ul class="header-top-links">
-                    <li><a href="#">Store</a></li>
+                    @if (Auth::user()/*->hasRole('admin')*/)
+                        <li><a href="#">Admin panel</a></li>
+                    @endif
                     <li><a href="#">Newsletter</a></li>
                     <li><a href="#">FAQ</a></li>
                     <li class="dropdown default-dropdown">
