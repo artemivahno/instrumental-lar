@@ -13,7 +13,7 @@
             <div class="pull-right">
                 <ul class="header-top-links">
                     @if (Auth::user()/*->hasRole('admin')*/)
-                        <li><a href="#">Admin panel</a></li>
+                        <li><a href="{{route('admin')}}">Admin panel</a></li>
                     @endif
                     <li><a href="#">Newsletter</a></li>
                     <li><a href="#">FAQ</a></li>

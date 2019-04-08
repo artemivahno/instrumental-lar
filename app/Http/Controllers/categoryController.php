@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Brand;
@@ -46,22 +47,45 @@ class categoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  $slug
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+	public function show($slug)
     {
-        //
-    }
+    	//dd($slug);
+	    $categorySlug = Category::whereSlug($slug)->firstOrFail();
+	    $categoryId = $categorySlug ['id'];
+	    $brands = [];
+	    //$items = Item::where('category_id', $categoryId)->get();//забрали items по id категории
+	    $products = Product::where('category_id', $categoryId)->get();//забрали items по id категории
+	    $brandIDs = array_pluck($products, 'brand_id'); //выдернули из items id брэндов
+	    foreach($brandIDs as $brandID) {
+		    $test = Brand::where('id', $brandID)->get()->toArray();
+		    array_push($brands, $test[0]);
+	    } //из БД забрали бренды по id и положили их в массив
+	    $brands = array_map("unserialize", array_unique(array_map("serialize", $brands))); //убрали дубли
 
+	    $catNsme = $categorySlug ['name'];; //для вывода имени категории в загаловке
+	    //dd($catNsme );
+
+	    return view('category', [
+		    'categories' => Category::all(),
+		    'category' => $slug,
+		    'categoryName' => $catNsme,
+		    'brands' => $brands,
+	    ]);
+    }
+//- применяется для формирования меню категорий = TODO - ПЕРЕДЕЛАТЬ
 	public function show_slug($slug) {
 		//dd($slug);
 
 			$categorySlug = Category::whereSlug($slug)->firstOrFail();
 			$categoryId = $categorySlug ['id'];
 	        $brands = [];
-	        $items = Item::where('category_id', $categoryId)->get();//забрали items по id категории
-	        $brandIDs = array_pluck($items, 'brand_id'); //выдернули из items id брэндов
+	        dd($categoryId );
+	        /*$items = Item::where('category_id', $categoryId)->get();//забрали items по id категории*/
+	    $products = Product::where('category_id', $categoryId)->get();//забрали items по id категории
+		$brandIDs = array_pluck($products, 'brand_id'); //выдернули из items id брэндов
 	        foreach($brandIDs as $brandID) {
 	            $test = Brand::where('id', $brandID)->get()->toArray();
 	            array_push($brands, $test[0]);

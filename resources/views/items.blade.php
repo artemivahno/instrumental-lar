@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
- {{--   <div class="container">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
@@ -10,12 +10,12 @@
 
                 </div>
             </div>
-        </div>--}}
+        </div>
         <div id="breadcrumb">
             <div class="container">
                 <ul class="breadcrumb">
                 <li><a href="{{route('index')}}">Home</a></li>
-                <li><a href="{{route('category',$category->slug )}}">{{$categoryName}}</a></li>
+                <li><a href="{{route('category.slug',$category->slug )}}">{{$categoryName}}</a></li>
                 <li class="active"><b>{{$brandName}} </b></li>
             </ul>
         </div>
@@ -24,10 +24,10 @@
             <div class="col-md-8">
                 <div class="col-xs-6">
                     <ul>
-                        @foreach($items as $item)
+                        @foreach($products as $product)
                             <li><a class="nav-link" href=
-                                "{{ url('/product/'. $item->slug) }}">
-                                    {{ $item['name']}}</a>
+                                "{{ url('/product/'. $product->slug) }}">
+                                    {{ $product['name']}}</a>
                             </li>
                         @endforeach
                     </ul>

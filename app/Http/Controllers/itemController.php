@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use App\Models\Category;
 use App\Models\Brand;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class itemController /*extends Controller*/
@@ -13,21 +14,23 @@ class itemController /*extends Controller*/
 	public function index($slug, $brandSlug) {
 
 		$categorySlug = Category::whereSlug($slug)->firstOrFail();
-		$categoryId = $categorySlug ['cat_id'];
+		$categoryId = $categorySlug ['id'];
+		//dd($categorySlug);
 
 		$brandSlug = Brand::whereSlug($brandSlug)->firstOrFail();
 		$brandId = $brandSlug ['id'];
 
-		$brands = [];
-		$items = Item::where('category_id', $categoryId)->where('brand_id', $brandId)->get();
+		//$items = Item::where('category_id', $categoryId)->where('brand_id', $brandId)->get();
+		$products = Product::where('category_id', $categoryId)->where('brand_id', $brandId)->get();
 
 		$catNsme = $categorySlug ['name']; //для вывода имени категории в загаловке
 		$brandName = $brandSlug ['name'];
+		//dd($products);
 
 		return view('items', [
 			'categories' => Category::all(),
 			'category' => $categorySlug,
-			'items' => $items,
+			'products' => $products,
 			'categoryName' => $catNsme,
 			'brandName' => $brandName,
 		]);

@@ -22,7 +22,7 @@ Route::resource('category','categoryController');
 Route::get('/category/{slug}','categoryController@show_slug')->name('category.slug');
 
 
-Route::get('/products', 'productController@index')->name('products');
+Route::get('/products', 'productController@products')->name('products');
 Route::post('/products', 'productController@store');
 Route::get('/products/create', 'productController@product_create')->name('product_create');
 
@@ -31,8 +31,8 @@ Route::get('/category/{slug}/brand/{brandsSlug}', /*['as' => 'brand_in_category'
 Route::get('/product/{itemSlug}', /*['as' => 'item', 'uses' => */'itemController@item')->name('item');
 
 Route::get('/admin', function(){
-	return view('admin');
-});
+	return view('admin.admin');
+})->name('admin')->middleware('can:admin');
 
 
 //not use yet

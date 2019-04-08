@@ -21,7 +21,13 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+	        $table->unsignedInteger('role_id')->unsigned()->nullable()->default(2);
         });
+
+       /* Schema::table('users', function (Blueprint $table) {
+		    $table->foreign('role_id')->references('id')->on('roles')->onDelete('set null');
+	    });*/
     }
 
     /**
